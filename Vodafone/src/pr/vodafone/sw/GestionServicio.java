@@ -11,8 +11,7 @@ import pr.vodafone.dao.dto.xsd.Terminal;
 
 public class GestionServicio {
 	
-	
-	private void actualizarTerminal(String idTerminal, Float promoOro, Float promoPlata, Float promoBronce){
+	public void actualizarTerminal(String idTerminal, Float promoOro, Float promoPlata, Float promoBronce){
 		
 		
 		try {
