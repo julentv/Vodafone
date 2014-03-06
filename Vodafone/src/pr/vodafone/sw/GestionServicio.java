@@ -25,6 +25,9 @@ public class GestionServicio {
 			terminal.setPromoOro(promoOro);
 			terminal.setPromoPlata(promoPlata);
 			terminal.setPromoBronce(promoBronce);
+			terminal.setMarca("marca");
+			terminal.setModelo("marca");
+			terminal.setPrecio(20);
 			operacion.setTerminal(terminal);
 			
 			stub.actualizarTerminal(operacion);
