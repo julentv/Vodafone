@@ -12,12 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.SwingUtilities;
+
+import pr.vodafone.dao.dto.xsd.Terminal;
 
 
 /**
@@ -263,7 +264,7 @@ public class VSWTerminales extends javax.swing.JFrame {
 	}
 	
 	private void botonEnviar(){
-		String idTerminal="1";
+		String idTerminal="23";
 		float promoOro;
 		float promoPlata;
 		float promoBronce;
@@ -278,7 +279,12 @@ public class VSWTerminales extends javax.swing.JFrame {
 		System.out.println("Valor plata: "+promoPlata);
 		System.out.println("Valor bronce: "+promoBronce);
 		GestionServicio gestionServicio= new GestionServicio();
-		//gestionServicio.actualizarTerminal(idTerminal, promoOro, promoPlata, promoBronce);
+		Terminal terminalNuevo= new Terminal ();
+		terminalNuevo.setIdTerminal(idTerminal);
+		terminalNuevo.setPromoBronce(promoBronce);
+		terminalNuevo.setPromoOro(promoOro);
+		terminalNuevo.setPromoPlata(promoPlata);
+		gestionServicio.insertarTerminal(terminalNuevo);
 		
 	}
 	private void botonCerrar(){
