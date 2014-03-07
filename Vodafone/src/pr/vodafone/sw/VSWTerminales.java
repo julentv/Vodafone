@@ -263,6 +263,22 @@ public class VSWTerminales extends javax.swing.JFrame {
 	}
 	
 	private void botonEnviar(){
+		String idTerminal="1";
+		float promoOro;
+		float promoPlata;
+		float promoBronce;
+		
+		//obtener datos de la ventana
+		promoOro=Float.parseFloat(cajaOro.getText());
+		promoPlata=Float.parseFloat(cajaPlata.getText());
+		promoBronce=Float.parseFloat(cajaBronce.getText());
+		
+		//llamar al metodo de enviar
+		System.out.println("Valor oro: "+promoOro);
+		System.out.println("Valor plata: "+promoPlata);
+		System.out.println("Valor bronce: "+promoBronce);
+		GestionServicio gestionServicio= new GestionServicio();
+		gestionServicio.actualizarTerminal(idTerminal, promoOro, promoPlata, promoBronce);
 		
 	}
 	private void botonCerrar(){
