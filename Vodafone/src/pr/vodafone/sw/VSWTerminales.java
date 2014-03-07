@@ -278,7 +278,7 @@ public class VSWTerminales extends javax.swing.JFrame {
 		System.out.println("Valor plata: "+promoPlata);
 		System.out.println("Valor bronce: "+promoBronce);
 		GestionServicio gestionServicio= new GestionServicio();
-		gestionServicio.actualizarTerminal(idTerminal, promoOro, promoPlata, promoBronce);
+		//gestionServicio.actualizarTerminal(idTerminal, promoOro, promoPlata, promoBronce);
 		
 	}
 	private void botonCerrar(){
