@@ -2,6 +2,8 @@ package pr.vodafone.sw;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -17,7 +19,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.SwingUtilities;
+import javax.xml.bind.JAXBException;
 
+import pr.vodafone.dao.dto.Terminales;
 import pr.vodafone.dao.dto.xsd.Terminal;
 
 
@@ -122,7 +126,15 @@ public class VSWTerminales extends javax.swing.JFrame {
 						public void actionPerformed(ActionEvent evt) {
 							System.out.println("botonCargar.actionPerformed, event="+evt);
 							//TODO add your code for botonEditar.actionPerformed
-							botonCargar();
+							try {
+								botonCargar();
+							} catch (FileNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} catch (JAXBException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 					});
 				}
@@ -254,12 +266,21 @@ public class VSWTerminales extends javax.swing.JFrame {
 		
 	}
 	
-	private void botonCargar(){		
+	private void botonCargar() throws FileNotFoundException, JAXBException{		
 		JFileChooser jfc = new JFileChooser();
 		int returnVal = jfc.showOpenDialog(this);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			File fichero = jfc.getSelectedFile();
 			System.out.println(fichero.getAbsolutePath());
+			XmlParser parser = new XmlParser();
+			Terminales terminales = parser.parsearXML(fichero);
+			ArrayList<pr.vodafone.dao.dto.Terminal> terminalList =  terminales.getTerminalList();
+			
+			for(int i=0;i<terminalList.size();i++){
+				
+				
+			}
+			
 		}
 	}
 	
